@@ -1,0 +1,427 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * @author Chiquín, Jorge
+ * @author Vargas, Alexander
+ * @author Bonilla, José
+ * @author Fernández, Ysidro
+ * @author Rodríguez, Ronald
+ */
+package Vista;
+
+import Controlador.CPropietario;
+import com.toedter.calendar.JDateChooser;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class VPropietario extends javax.swing.JDialog {
+
+    public JTextField getTxtApellido() {
+        return txtApellido;
+    }
+
+    public String getTxtApellidoSt() {
+        return txtApellido.getText();
+    }
+
+    public String getTxtDireccionSt() {
+        return txtDireccion.getText();
+    }
+
+    public String getTxtCedulaSt() {
+        return txtCedula.getText();
+    }
+
+    public String getTxtNombreSt() {
+        return txtNombre.getText();
+    }
+
+    public String getTxtTelefonoSt() {
+        return txttelefono.getText();
+    }
+
+    public Date getDtcFecNacSt() {
+        return dtcFecNac.getDate();
+    }
+
+    public JDateChooser getDtcFecNac() {
+        return dtcFecNac;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public JTextField getTxttelefono() {
+        return txttelefono;
+    }
+
+    public void setEnabledBtnIncluir(boolean enabled) {
+        this.btnIncluir.setEnabled(enabled);  
+    }
+
+    public void setEnabledBtnBuscar(boolean enabled) {
+        this.btnBuscar.setEnabled(enabled);
+    }
+
+    public void setEditableCedula(boolean editable) {
+        this.txtCedula.setEditable(editable);
+    }
+
+    public void editableCampos(boolean editable) {
+        this.txtCedula.setEditable(!editable);
+        this.txtNombre.setEditable(editable);
+        this.txtApellido.setEditable(editable);
+        this.txtDireccion.setEditable(editable);
+        this.txttelefono.setEditable(editable);
+        this.dtcFecNac.setEnabled(editable);
+    }
+
+    public void enabledBotones(boolean enabled) {
+       
+        this.btnModificar.setEnabled(enabled);
+        this.btnEliminar.setEnabled(enabled);
+        this.btnLimpiar.setEnabled(enabled);
+    }
+
+    public int lenghtCedula() {
+        return this.getTxtCedulaSt().length();
+    }
+
+    /**
+     * Creates new form VPropi
+     */
+    public VPropietario(java.awt.Frame parent, boolean modal, Component c) {
+        super(parent, modal);
+        initComponents();
+        setLocationRelativeTo(c);
+    }
+
+    public void agregarActionListener(ActionListener accion, KeyListener accion2) {
+        this.btnRegresar.addActionListener(accion);
+        this.btnEliminar.addActionListener(accion);
+        this.btnModificar.addActionListener(accion);
+        this.btnLimpiar.addActionListener(accion);
+        this.btnIncluir.addActionListener(accion);
+        this.btnBuscar.addActionListener(accion);
+        this.txtApellido.addKeyListener(accion2);
+        this.txtNombre.addKeyListener(accion2);
+        this.txttelefono.addKeyListener(accion2);
+        this.txtDireccion.addKeyListener(accion2);
+        this.txtCedula.addKeyListener(accion2);
+
+    }
+
+    public void limpiar() {
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtDireccion.setText("");
+        txttelefono.setText("");
+        java.util.Date now = new java.util.Date(System.currentTimeMillis());
+        this.dtcFecNac.setDate(now);
+        this.editableCampos(false);
+        this.btnBuscar.setEnabled(false);
+         this.btnIncluir.setEnabled(false);
+        this.enabledBotones(false);
+
+    }
+
+    public void setDtcFecNac(Date dtcFecNac) {
+        this.dtcFecNac.setDate(dtcFecNac);
+    }
+
+    public void setTxtApellido(String txtApellido) {
+        this.txtApellido.setText(txtApellido);
+    }
+
+    public void setTxtCedula(String txtCedula) {
+        this.txtCedula.setText(txtCedula);
+    }
+
+    public void setTxtDireccion(String txtDireccion) {
+        this.txtDireccion.setText(txtDireccion);
+    }
+
+    public void setTxtNombre(String txtNombre) {
+        this.txtNombre.setText(txtNombre);
+    }
+
+    public void setTxttelefono(String txttelefono) {
+        this.txttelefono.setText(txttelefono);
+    }
+
+    public void setEnabledBtnLimpiar(boolean b) {
+        btnLimpiar.setEnabled(b);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txttelefono = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnIncluir = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
+        dtcFecNac = new com.toedter.calendar.JDateChooser();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Propietario");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Propietario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jLabel1.setText("Cédula:  ");
+        jLabel1.setName("lblCedula"); // NOI18N
+
+        txtCedula.setName("txtCedula"); // NOI18N
+
+        jLabel2.setText("Nombre:  ");
+        jLabel2.setName("lblNombre"); // NOI18N
+
+        txtNombre.setName("txtNombre"); // NOI18N
+
+        jLabel3.setText("Dirección: ");
+        jLabel3.setName("lblDireccion"); // NOI18N
+
+        txtDireccion.setName("txtDireccion"); // NOI18N
+
+        jLabel4.setText("Teléfono: ");
+
+        txttelefono.setName("txtTelefono"); // NOI18N
+
+        jLabel5.setText("Fecha de Nacimiento: ");
+
+        btnRegresar.setText("Regresar");
+        btnRegresar.setName("btnRegistrar"); // NOI18N
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.setName("btnBuscar"); // NOI18N
+
+        btnIncluir.setText("Incluir");
+        btnIncluir.setName("btnIncluir"); // NOI18N
+
+        btnModificar.setText("Modificar");
+        btnModificar.setName("btnModificar"); // NOI18N
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setName("btnEliminar"); // NOI18N
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setName("btnLimpiar"); // NOI18N
+
+        jLabel6.setText("Apellido: ");
+        jLabel6.setName("lblApellido"); // NOI18N
+
+        txtApellido.setName("txtApellido"); // NOI18N
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(btnIncluir)
+                .addGap(14, 14, 14)
+                .addComponent(btnModificar)
+                .addGap(14, 14, 14)
+                .addComponent(btnLimpiar)
+                .addGap(14, 14, 14)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(btnRegresar))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(dtcFecNac, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(dtcFecNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIncluir)
+                    .addComponent(btnModificar)
+                    .addComponent(btnRegresar)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnEliminar))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VPropietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VPropietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VPropietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VPropietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                VPropietario dialog = new VPropietario(new javax.swing.JFrame(), true, null);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnIncluir;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegresar;
+    private com.toedter.calendar.JDateChooser dtcFecNac;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txttelefono;
+    // End of variables declaration//GEN-END:variables
+
+}

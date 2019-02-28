@@ -1,0 +1,3 @@
+CondominioBD.backup es el backup de posgrest 3.16 usando el puerto 5433
+
+Tablas(SQL) simplemente es el SQL general para crear las tablas vacías.
